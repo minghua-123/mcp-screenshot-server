@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sethbang/mcp-screenshot-server.git"
+    "url": "git+https://github.com/sethbang/mcp-screenshot-server.git"
   },
   "bugs": {
     "url": "https://github.com/sethbang/mcp-screenshot-server/issues"
   },
   "homepage": "https://github.com/sethbang/mcp-screenshot-server#readme",
   "bin": {
-    "universal-screenshot-mcp": "./build/index.js"
+    "universal-screenshot-mcp": "build/index.js"
   },
   "files": [
     "build"

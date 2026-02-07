@@ -4,40 +4,39 @@ on:
   push:
     tags: ["v*"] # Triggers on version tags like v1.0.0
 
+permissions:
+  id-token: write # Required for OIDC (both npm trusted publishing and MCP Registry)
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write # Required for OIDC authentication with MCP Registry
-      contents: read
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       ### Build & test ###
 
       - name: Set up Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version: "24" # npm 11.5.1+ required for trusted publishing
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: npm ci
 
       - name: Run tests
-        run: npm run test --if-present
+        run: npm test
 
       - name: Build package
-        run: npm run build --if-present
+        run: npm run build
 
-      ### Publish to npm ###
+      ### Publish to npm (trusted publishing via OIDC — no NPM_TOKEN needed) ###
 
       - name: Publish package to npm
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       ### Publish to MCP Registry ###
 
