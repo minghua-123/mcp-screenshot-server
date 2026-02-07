@@ -1,9 +1,10 @@
 {
-  "name": "screenshot-server",
+  "name": "universal-screenshot-mcp",
   "version": "1.0.0",
   "description": "An MCP server for capturing web page screenshots via Puppeteer and cross-platform system screenshots via native OS tools",
   "author": "Seth Bang",
   "license": "Apache-2.0",
+  "mcpName": "io.github.sethbang/screenshot-server",
   "keywords": [
     "mcp",
     "screenshot",
@@ -14,7 +15,9 @@
     "cross-platform",
     "screencapture",
     "model-context-protocol",
-    "claude"
+    "claude",
+    "universal-screenshot",
+    "system-screenshot"
   ],
   "type": "module",
   "engines": {
@@ -29,7 +32,7 @@
   },
   "homepage": "https://github.com/sethbang/mcp-screenshot-server#readme",
   "bin": {
-    "screenshot-server": "./build/index.js"
+    "universal-screenshot-mcp": "./build/index.js"
   },
   "files": [
     "build"

@@ -1,4 +1,8 @@
-# MCP Screenshot Server
+# Universal Screenshot MCP
+
+[![npm version](https://img.shields.io/npm/v/universal-screenshot-mcp.svg)](https://www.npmjs.com/package/universal-screenshot-mcp)
+[![MCP Registry](https://img.shields.io/badge/MCP_Registry-io.github.sethbang%2Fscreenshot--server-blue)](https://registry.modelcontextprotocol.io)
+[![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
 
 An [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that provides AI assistants with screenshot capabilities — both web page capture via [Puppeteer](https://pptr.dev/) and cross-platform system screenshots using native OS tools.
 
@@ -40,6 +44,18 @@ sudo apt install grim
 
 ## Quick Start
 
+### Install from npm
+
+```bash
+npm install -g universal-screenshot-mcp
+```
+
+Or run directly with `npx`:
+
+```bash
+npx universal-screenshot-mcp
+```
+
 ### Install from Source
 
 ```bash
@@ -52,6 +68,19 @@ npm run build
 ### Configure Your MCP Client
 
 Add the server to your MCP client configuration. For **Claude Desktop**, edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "screenshot-server": {
+      "command": "npx",
+      "args": ["-y", "universal-screenshot-mcp"]
+    }
+  }
+}
+```
+
+Or if installed from source:
 
 ```json
 {
