@@ -2,4 +2,7 @@ Screenshots/
 test.html
 node_modules/
 build/
+coverage/
 .DS_Store
+_mcp/llms-full.txt
+.claude/settings.local.json
